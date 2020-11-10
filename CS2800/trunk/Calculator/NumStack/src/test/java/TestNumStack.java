@@ -13,6 +13,8 @@ class TestNumStack {
 
   Entry entry;
 
+  double i = 5;
+  
   @BeforeEach
   public void setup() {
     stack = new NumStack();
@@ -24,7 +26,6 @@ class TestNumStack {
   
   @Test
   void testPush() {
-    float i = 5;
     stack.push(i);
     assertEquals(stack.size, 1, "The size of the stack should be 1");
   }
@@ -36,7 +37,6 @@ class TestNumStack {
   
   @Test
   void testPop() throws BadTypeException {
-    double i = 5;
     stack.push(i);
     assertEquals(stack.pop(), 5, "The value popped should be the last value pushed onto the stack");
   }
@@ -47,6 +47,8 @@ class TestNumStack {
   @Test
   void testIsEmpty() {
     assertTrue(stack.isEmpty());
+    stack.push(i);
+    assertFalse(stack.isEmpty());
   }
 
 }
