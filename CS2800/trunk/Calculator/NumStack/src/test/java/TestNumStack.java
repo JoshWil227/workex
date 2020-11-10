@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -12,16 +13,31 @@ class TestNumStack {
 
   Entry entry;
 
+  @BeforeEach
+  public void setup() {
+    stack = new NumStack();
+  }
+  
   /**
    * Test 1. Tests the push method works.
    */
   
   @Test
   void testPush() {
-    stack = new NumStack();
     float i = 5;
     stack.push(i);
     assertEquals(stack.size, 1, "The size of the stack should be 1");
+  }
+  
+  /**
+   * Test 2. Tests the pop method works.
+   */
+  
+  @Test
+  void testPop() {
+    float i = 5;
+    stack.push(i);
+    assertEquals(stack.pop(), 5, "The value popped should be the last value pushed onto the stack");
   }
 
 }
