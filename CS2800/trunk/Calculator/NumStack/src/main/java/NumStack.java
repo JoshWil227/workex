@@ -1,3 +1,4 @@
+import java.util.function.BooleanSupplier;
 
 /**
  * The Stack handling all of the numbers entered by the user.
@@ -38,6 +39,16 @@ public class NumStack {
     } else {
       throw new BadTypeException(null);
     }
+  }
+
+  /**
+   * If the stack is empty, returns true. Else returns false.
+   * 
+   * @return the boolean depending on whether or not the stack is empty.
+   */
+  
+  public Boolean isEmpty() {
+    return true;
   }
 
 

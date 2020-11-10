@@ -19,7 +19,7 @@ class TestNumStack {
   }
   
   /**
-   * Test 1. Tests the push method works.
+   * Test 1. Tests the push method works. For this I created and wrote the push method.
    */
   
   @Test
@@ -30,7 +30,7 @@ class TestNumStack {
   }
   
   /**
-   * Test 2. Tests the pop method works.
+   * Test 2. Tests the pop method works. For this I created and wrote the pop method.
    * @throws BadTypeException if the top entry of the stack is not a number.
    */
   
@@ -39,6 +39,14 @@ class TestNumStack {
     double i = 5;
     stack.push(i);
     assertEquals(stack.pop(), 5, "The value popped should be the last value pushed onto the stack");
+  }
+  
+  /**
+   * Test 3. Tests that the isEmpty method works.
+   */
+  @Test
+  void testIsEmpty() {
+    assertTrue(stack.isEmpty());
   }
 
 }
