@@ -16,11 +16,28 @@ public class NumStack {
    * 
    * @param i The float to be pushed onto the stack.
    */
-  
-  public void push(float i) {
+
+  public void push(double i) {
     entry = new Entry(i);
     numStack.push(entry);
     size = numStack.size;
+  }
+
+  /**
+   * Returns the float on the top of the stack.
+   * 
+   * @return the last floated pushed to the stack.
+   * @throws BadTypeException if the last entry pushed to the stack was not a number.
+   */
+
+  public double pop() throws BadTypeException {
+    entry = numStack.pop();
+    if (entry.getType() == "Number") {
+      double val = entry.getValue();
+      return val;
+    } else {
+      throw new BadTypeException(null);
+    }
   }
 
 

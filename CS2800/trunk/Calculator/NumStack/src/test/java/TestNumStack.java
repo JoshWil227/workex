@@ -31,11 +31,12 @@ class TestNumStack {
   
   /**
    * Test 2. Tests the pop method works.
+   * @throws BadTypeException if the top entry of the stack is not a number.
    */
   
   @Test
-  void testPop() {
-    float i = 5;
+  void testPop() throws BadTypeException {
+    double i = 5;
     stack.push(i);
     assertEquals(stack.pop(), 5, "The value popped should be the last value pushed onto the stack");
   }
