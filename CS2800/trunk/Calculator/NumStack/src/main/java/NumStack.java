@@ -48,7 +48,10 @@ public class NumStack {
    */
   
   public Boolean isEmpty() {
-    return true;
+    if (numStack.size() == 0) {
+      return true;
+    }
+    return false;
   }
 
 
