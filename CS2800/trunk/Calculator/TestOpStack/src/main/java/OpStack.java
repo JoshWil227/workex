@@ -24,4 +24,17 @@ public class OpStack {
     size = opStack.size;
   }
 
+  /**
+   * Returns the symbol on the top of the stack.
+   * 
+   * @return the symbol on the top of the stack.
+   * @throws BadTypeException if the entry on the top of the stack is not a symbol.
+   */
+  
+  public Symbol pop() throws BadTypeException {
+    entry = opStack.pop();
+    Symbol symbol = entry.getSymbol();
+    return symbol;
+  }
+
 }

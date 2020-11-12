@@ -26,13 +26,14 @@ class TestOpStack {
 
   
   /**
-   * Test 2. Tests the pop method works.
+   * Test 2. Tests the pop method works. For 
+   * @throws BadTypeException if the entry on top of the stack is not a symbol.
    */
   
   @Test
-  void testPop() {
+  void testPop() throws BadTypeException {
     symbol = Symbol.DIVIDE;
     stack.push(symbol);
-    assertEquals(stack.pop(), "/", "The symbol popped should be the last symbol pushed.");
+    assertEquals(stack.pop(), Symbol.DIVIDE, "The symbol popped should be the last symbol pushed.");
   }
 }
