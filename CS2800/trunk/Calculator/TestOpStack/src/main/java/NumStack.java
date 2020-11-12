@@ -34,6 +34,7 @@ public class NumStack {
     entry = numStack.pop();
     if (entry.getType() == "Number") {
       double val = entry.getValue();
+      size = numStack.size();
       return val;
     } else {
       throw new BadTypeException(null);
@@ -47,7 +48,7 @@ public class NumStack {
    */
 
   public Boolean isEmpty() {
-    if (numStack.size() == 0) {
+    if (size == 0) {
       return true;
     }
     return false;

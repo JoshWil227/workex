@@ -1,3 +1,4 @@
+import java.util.function.BooleanSupplier;
 
 /**
  * The stack handling all of the symbols entered by the user.
@@ -21,7 +22,7 @@ public class OpStack {
   public void push(Symbol i) {
     entry = new Entry(i);
     opStack.push(entry);
-    size = opStack.size;
+    size = opStack.size();
   }
 
   /**
@@ -35,10 +36,24 @@ public class OpStack {
     entry = opStack.pop();
     if (entry.getType() == "Symbol") {
       Symbol symbol = entry.getSymbol();
+      size = opStack.size();
       return symbol;
     } else {
       throw new BadTypeException(null);
     }
+  }
+
+  /**
+   * Returns true if the stack is empty, returns false if it is populated.
+   * 
+   * @return the boolean depending on whether or not the stack is empty.
+   */
+  
+  public Boolean isEmpty() {
+    if (size == 0) {
+      return true;
+    }
+    return false;
   }
 
 }

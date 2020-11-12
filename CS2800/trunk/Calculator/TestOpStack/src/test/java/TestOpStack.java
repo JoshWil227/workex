@@ -39,7 +39,7 @@ class TestOpStack {
   
   
   /**
-   * Test 3. Tests the isEmpty method works.
+   * Test 3. Tests the isEmpty method works. For this I created the isEmpty method.
    */
   @Test
   void testIsEmpty() {
