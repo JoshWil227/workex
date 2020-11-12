@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 class TestOpStack {
 
-  public OpStack stack;
+  public OpStack stack = new OpStack();
   
   Symbol symbol;
   
@@ -15,7 +15,7 @@ class TestOpStack {
   void testPush() {
     symbol = Symbol.LEFT_BRACKET;
     stack.push(symbol);
-    assertEquals(stack.size, 1, "AFter one entry has been pushed, ")
+    assertEquals(stack.size, 1, "After one entry has been pushed, the size should be 1.");
   }
 
 }

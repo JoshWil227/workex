@@ -42,7 +42,7 @@ class TestNumStack {
   }
 
   /**
-   * Test 3. Tests that the isEmpty method works. FOr this I created and wrote the IsEmpty method.
+   * Test 3. Tests that the isEmpty method works. For this I created and wrote the IsEmpty method.
    */
   @Test
   void testIsEmpty() {
