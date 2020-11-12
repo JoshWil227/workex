@@ -15,11 +15,11 @@ public class OpStack {
   /**
    * Pushes a symbol onto the stack.
    * 
-   * @param symbol the symbol entered by the user.
+   * @param i the symbol entered by the user.
    */
   
-  public void push(Symbol symbol) {
-    entry = new Entry(symbol);
+  public void push(Symbol i) {
+    entry = new Entry(i);
     opStack.push(entry);
     size = opStack.size;
   }
