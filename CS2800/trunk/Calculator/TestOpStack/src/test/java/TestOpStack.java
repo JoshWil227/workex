@@ -37,4 +37,15 @@ class TestOpStack {
     assertEquals(stack.pop(), Symbol.DIVIDE, "The symbol popped should be the last symbol pushed.");
   }
   
+  
+  /**
+   * Test 3. Tests the isEmpty method works.
+   */
+  @Test
+  void testIsEmpty() {
+    assertTrue(stack.isEmpty());
+    symbol = Symbol.MINUS;
+    stack.push(symbol);
+    assertFalse(stack.isEmpty());
+  }
 }
