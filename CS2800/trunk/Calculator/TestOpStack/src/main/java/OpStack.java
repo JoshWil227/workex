@@ -33,8 +33,12 @@ public class OpStack {
   
   public Symbol pop() throws BadTypeException {
     entry = opStack.pop();
-    Symbol symbol = entry.getSymbol();
-    return symbol;
+    if (entry.getType() == "Symbol") {
+      Symbol symbol = entry.getSymbol();
+      return symbol;
+    } else {
+      throw new BadTypeException(null);
+    }
   }
 
 }
