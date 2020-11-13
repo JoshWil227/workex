@@ -1,4 +1,3 @@
-import java.util.function.BooleanSupplier;
 
 /**
  * The stack containing the string of the expression entered by the user.
