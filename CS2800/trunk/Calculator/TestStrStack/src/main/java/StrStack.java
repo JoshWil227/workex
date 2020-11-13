@@ -15,10 +15,13 @@ public class StrStack {
   /**
    * Pushes the given string onto the stack.
    * 
+   * @param str the string entered by the user.
    */
   
   public void push(String str) {
-    size = 1;
+    entry = new Entry(str);
+    strStack.push(entry);
+    size = strStack.size();
   }
   
   
