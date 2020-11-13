@@ -25,11 +25,12 @@ class TestStrStack {
   
   
   /**
-   * Test 2. Tests the pop method.
+   * Test 2. Tests the pop method. For this I added the pop method.
+   * @throws BadTypeException if the entry on the top of the stack is not a string.
    */
   
   @Test
-  void testPop() {
+  void testPop() throws BadTypeException {
     string = "6";
     stack.push(string);
     assertEquals(stack.pop(), "6", "The string returned should be the last string pushed.");
