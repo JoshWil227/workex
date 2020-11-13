@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -10,7 +11,8 @@ class TestStrStack {
 
   StrStack stack = new StrStack();
   
-  String string;
+  String string = "6";
+  
   
   /**
    * Test 1. Tests the push method. For this I added the push method.
@@ -18,7 +20,6 @@ class TestStrStack {
   
   @Test
   void testPush() {
-    string = "6";
     stack.push(string);
     assertEquals(stack.size, 1, "After one entry has been pushed, the size should be 1.");
   }
@@ -31,9 +32,20 @@ class TestStrStack {
   
   @Test
   void testPop() throws BadTypeException {
-    string = "6";
     stack.push(string);
     assertEquals(stack.pop(), "6", "The string returned should be the last string pushed.");
+  }
+  
+  
+  /**
+   * Test 3. Tests the IsEqual method.
+   */
+  
+  @Test
+  void testIsEqual() {
+    assertTrue(stack.isEmpty());
+    stack.push(string);
+    assertFalse(stack.isEmpty());
   }
 
 }

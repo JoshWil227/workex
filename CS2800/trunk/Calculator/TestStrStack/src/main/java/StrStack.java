@@ -28,9 +28,18 @@ public class StrStack {
    * Returns the string on the top of the stack.
    * 
    * @return the string that was last pushed onto the stack.
+   * @throws BadTypeException if the entry on the top of the stack is not a string.
    */
-  public String pop() {
-    return "6";
+  
+  public String pop() throws BadTypeException {
+    entry = strStack.pop();
+    if (entry.getType() == "String") {
+      String string = entry.getString();
+      size = strStack.size();
+      return string;
+    } else {
+      throw new BadTypeException(null);
+    }
   }
   
   
