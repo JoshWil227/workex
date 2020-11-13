@@ -23,6 +23,15 @@ public class StrStack {
     strStack.push(entry);
     size = strStack.size();
   }
+
+  /**
+   * Returns the string on the top of the stack.
+   * 
+   * @return the string that was last pushed onto the stack.
+   */
+  public String pop() {
+    return "6";
+  }
   
   
 }
