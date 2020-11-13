@@ -38,7 +38,7 @@ class TestStrStack {
   
   
   /**
-   * Test 3. Tests the IsEqual method.
+   * Test 3. Tests the IsEqual method. For this I added the IsEmpty method.
    */
   
   @Test
