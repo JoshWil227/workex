@@ -10,6 +10,10 @@ class TestRevPolishCalc {
 
   private RevPolishCalc calc = new RevPolishCalc();
   
+  /**
+   * Test 1. Tests that the evaluate method returns the number passed into it when only one number is entered.
+   * For this I made it parse the string into a double and return said double.
+   */
   @Test
   void testOneNum() {
     String s = "5";
