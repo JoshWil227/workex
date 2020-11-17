@@ -13,8 +13,8 @@ class TestRevPolishCalc {
   @Test
   void testOneNum() {
     String s = "5";
-    float f = calc.evaluate(s);
-    assertEquals(f, 5, "The single number returned should be the same as the one entered.");
+    double d = calc.evaluate(s);
+    assertEquals(d, 5, "The single number returned should be the same as the one entered.");
   }
 
 }
