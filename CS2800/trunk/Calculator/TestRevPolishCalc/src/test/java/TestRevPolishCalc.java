@@ -36,5 +36,17 @@ class TestRevPolishCalc {
    s = "5 6"; 
    assertThrows(InvalidExpression.class, () -> calc.evaluate(s));
   }
+  
+  /**
+   * Test 3. Tests that if two numbers and the addition symbol are passed in, the evaluate method will add those two numbers together.
+   * 
+   * @throws InvalidExpression if only two numbers are passed in.
+   */
+  @Test
+  void testJustAdd() throws InvalidExpression {
+    s = "5 6 +";
+    d = calc.evaluate(s);
+    assertEquals(d, 11, "The answer should be the sum of the two numbers.");
+  }
 
 }
