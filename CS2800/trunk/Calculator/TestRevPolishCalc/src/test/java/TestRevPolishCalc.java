@@ -18,9 +18,10 @@ class TestRevPolishCalc {
    * Test 1. Tests that the evaluate method returns the number passed into it when only one number is entered.
    * For this I made it parse the string into a double and return said double.
    * @throws InvalidExpression if an invalid expression is passed in by the users.
+   * @throws BadTypeException if the method tries to pop a symbol instead of a number.
    */
   @Test
-  void testOneNum() throws InvalidExpression {
+  void testOneNum() throws InvalidExpression, BadTypeException {
     s = "5";
     d = calc.evaluate(s);
     assertEquals(d, 5, "The single number returned should be the same as the one entered.");
@@ -41,9 +42,10 @@ class TestRevPolishCalc {
    * Test 3. Tests that if two numbers and the addition symbol are passed in, the evaluate method will add those two numbers together.
    * 
    * @throws InvalidExpression if only two numbers are passed in.
+   * @throws BadTypeException if the method tries to pop a symbol instead of a number.
    */
   @Test
-  void testJustAdd() throws InvalidExpression {
+  void testJustAdd() throws InvalidExpression, BadTypeException {
     s = "5 6 +";
     d = calc.evaluate(s);
     assertEquals(d, 11, "The answer should be the sum of the two numbers.");
