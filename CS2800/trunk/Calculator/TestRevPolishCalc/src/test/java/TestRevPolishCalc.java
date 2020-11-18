@@ -29,7 +29,7 @@ class TestRevPolishCalc {
   
   /**
    * Test 2. Tests that the evaluate method throws an InvalidExpression exception 
-   * if passed two numbers and no operand.
+   * if passed two numbers and no symbol.
    * For this I cheated, making it throw the exception whenever a string longer than 1 character is passed in.
    */
   @Test
@@ -40,6 +40,8 @@ class TestRevPolishCalc {
   
   /**
    * Test 3. Tests that if two numbers and the addition symbol are passed in, the evaluate method will add those two numbers together.
+   * For this I made it so that it evaluate immediately returns if only one number is entered. 
+   * I also made evaluate split the string, separating it by spaces, pushing the numbers into a numstack and ignoring any operands.
    * 
    * @throws InvalidExpression if only two numbers are passed in.
    * @throws BadTypeException if the method tries to pop a symbol instead of a number.
@@ -50,5 +52,25 @@ class TestRevPolishCalc {
     d = calc.evaluate(s);
     assertEquals(d, 11, "The answer should be the sum of the two numbers.");
   }
+  
+  
+  /**
+   * Test 4. Tests that different symbol being entered make evaluate() perform the correct operation.
+   * 
+   * @throws InvalidExpression if only two numbers and no symbol are entered.
+   * @throws BadTypeException if the method tries to pop a symbol instead of a number.
+   */
+  @Test
+  void testSymbols() throws InvalidExpression, BadTypeException {
+    s = "8 4 /";
+    d = calc.evaluate(s);
+    assertEquals(d, 2, "The anser should be the first number divided by the second.");
+    s = "8 4 *";
+    d = calc.evaluate(s);
+    assertEquals(d, 32, "The anser should be the first number mulitplied by the second.");
+    s = "8 4 -";
+    d = calc.evaluate(s);
+    assertEquals(d, 4, "The anser should be the first number minus the second.");
+   }
 
 }
