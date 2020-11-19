@@ -107,7 +107,7 @@ class TestRevPolishCalc {
   @Test
   void testTooManySymbols() throws InvalidExpression, BadTypeException {
     s = "4 2 + -";
-    assertThrows(InvalidExpression.class, () -> calc.evaluate(s));
+    assertThrows(InvalidExpression.class, () -> calc.evaluate(s), "Should throw invalidexpression exception.");
   }
 
 }

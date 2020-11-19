@@ -4,13 +4,13 @@
  * 
  * @author zhac109
  */
-public class EmptyStackException extends Exception{
+public class EmptyStackException extends Exception {
 
   /**
    * The unique serial number of this Exception.
    */
   private static final long serialVersionUID = 244490188855298564L;
-  
+
   /**
    * The message output to the terminal when this exception is thrown.
    */

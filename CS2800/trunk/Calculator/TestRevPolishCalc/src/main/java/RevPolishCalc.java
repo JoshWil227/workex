@@ -34,6 +34,9 @@ public class RevPolishCalc {
         double d = (double) token - '0';
         values.push(d);
       } else {
+        if (values.size <= 1) { // if not enough numbers in stack to perform an operation
+          throw new InvalidExpression(null);
+        }
         symbol = inputs[i].charAt(0);
         double num1 = values.pop();
         double num2 = values.pop();
