@@ -107,7 +107,32 @@ class TestRevPolishCalc {
   @Test
   void testTooManySymbols() throws InvalidExpression, BadTypeException {
     s = "4 2 + -";
-    assertThrows(InvalidExpression.class, () -> calc.evaluate(s), "Should throw invalidexpression exception.");
+    assertThrows(InvalidExpression.class, () -> calc.evaluate(s),
+        "Should throw invalidexpression exception.");
+  }
+
+  /**
+   * Test 7. Tests that the evaluate method correctly handles numbers with multiple digits,
+   * splitting them correctly and dealing with large numbers.
+   * 
+   * @throws InvalidExpression if there is a syntax error in the expression entered.
+   * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
+   */
+  @Test
+  void testMultiDigitNums() throws InvalidExpression, BadTypeException {
+    s = "10";
+    d = calc.evaluate(s);
+    assertEquals(d, 10, "The number returned should be the number entered.");
+    s = "100";
+    d = calc.evaluate(s);
+    assertEquals(d, 100, "The number returned should be the number entered.");
+    s = "10 10 *";
+    d = calc.evaluate(s);
+    assertEquals(d, 100, "The number returned should be the result of the operation entered.");
+    s = "10 123456789 *";
+    d = calc.evaluate(s);
+    assertEquals(d, 1234567890,
+        "The number returned should be the result of the operation entered.");
   }
 
 }
