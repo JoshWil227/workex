@@ -80,7 +80,10 @@ class TestRevPolishCalc {
 
 
   /**
-   * Test 5. Tests that the evaluate method can handle multiple operators and numbers. 
+   * Test 5. Tests that the evaluate method can handle multiple operators and numbers. For this I
+   * moved the switch statement and the popping of numbers out to have operations performed on them
+   * inside the reading loop so that whenever a symbol is read, that function is performed on the
+   * most recent two numbers in the stack.
    * 
    * @throws InvalidExpression if the expression contains a syntax error.
    * @throws BadTypeException if the method tries to push a symbol onto the numstack.
