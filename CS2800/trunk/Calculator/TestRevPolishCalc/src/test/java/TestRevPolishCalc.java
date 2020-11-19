@@ -143,10 +143,11 @@ class TestRevPolishCalc {
 
   /**
    * Test 8. Tests that the evaluate method throws an InvalidExpression exception when an infix
-   * expression is entered.
+   * expression is entered. For this I did not need to do anything, as my protection against too
+   * many symbols being entered already caught it.
    * 
-   * @throws InvalidExpression
-   * @throws BadTypeException
+   * @throws InvalidExpression if there is a syntax error in the expression entered.
+   * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
    */
   @Test
   void testInfix() throws InvalidExpression, BadTypeException {
