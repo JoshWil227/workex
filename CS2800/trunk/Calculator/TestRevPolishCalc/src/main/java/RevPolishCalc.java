@@ -47,6 +47,9 @@ public class RevPolishCalc {
             ans = num2 - num1;
             break;
           case '/':
+            if (num1 == 0) {
+              throw new InvalidExpression(null);
+            }
             ans = num2 / num1;
             break;
           case '*':

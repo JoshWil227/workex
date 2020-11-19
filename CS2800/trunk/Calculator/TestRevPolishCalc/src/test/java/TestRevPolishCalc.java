@@ -156,22 +156,23 @@ class TestRevPolishCalc {
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
    */
-  
+
   @Test
   void testInfix() throws InvalidExpression, BadTypeException {
     s = "10 + 10";
     assertThrows(InvalidExpression.class, () -> calc.evaluate(s),
         "Passing an expression in infix notation should return an invalid expression exception.");
   }
-  
-  
+
+
   /**
-   * Test 9. Tests that dividing by zero throws an InvalidExpression exception.
+   * Test 9. Tests that dividing by zero throws an InvalidExpression exception. Added an if
+   * statement to stipulate that if the second number is zero, throw an InvalidExpression exception.
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
    */
-  
+
   @Test
   void testDivZero() throws InvalidExpression, BadTypeException {
     s = "5 0 /";
