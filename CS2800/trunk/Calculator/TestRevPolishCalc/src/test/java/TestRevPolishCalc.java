@@ -117,7 +117,8 @@ class TestRevPolishCalc {
    * a single number entered to check for only one number in the array instead of checking the
    * number of characters in the string. Also changed how numbers are pushed onto the stack from the
    * first character of that array item to the whole string of that element. Changed the checking of
-   * no symbols to use a boolean set true when the first symbol is read. If not true at end of string
+   * no symbols to use a boolean set true when the first symbol is read. If not true at end of
+   * string
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
@@ -137,6 +138,21 @@ class TestRevPolishCalc {
     d = calc.evaluate(s);
     assertEquals(d, 1234567890,
         "The number returned should be the result of the operation entered.");
+  }
+
+
+  /**
+   * Test 8. Tests that the evaluate method throws an InvalidExpression exception when an infix
+   * expression is entered.
+   * 
+   * @throws InvalidExpression
+   * @throws BadTypeException
+   */
+  @Test
+  void testInfix() throws InvalidExpression, BadTypeException {
+    s = "10 + 10";
+    assertThrows(InvalidExpression.class, () -> calc.evaluate(s),
+        "Passing an expression in infix notation should return an invalid expression exception.");
   }
 
 }
