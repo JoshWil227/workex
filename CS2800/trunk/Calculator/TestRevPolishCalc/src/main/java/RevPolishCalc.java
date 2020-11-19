@@ -21,23 +21,22 @@ public class RevPolishCalc {
    */
   public double evaluate(String what) throws InvalidExpression, BadTypeException {
     char symbol;
-    if (what.length() == 1) {
-      return Double.parseDouble(what);
-    }
-    if (what.length() == 3) {
-      throw new InvalidExpression(null);
-    }
+    boolean hasSymb = false;
     String[] inputs = what.split(" ");
+    if (inputs.length == 1) {
+      return Double.parseDouble(inputs[0]);
+    }
     for (int i = 0; i < inputs.length; i++) {
       char token = inputs[i].charAt(0);
       if (Character.isDigit(token)) {
-        double d = (double) token - '0';
+        double d = Double.parseDouble(inputs[i]);
         values.push(d);
       } else {
         if (values.size <= 1) { // if not enough numbers in stack to perform an operation
           throw new InvalidExpression(null);
         }
         symbol = inputs[i].charAt(0);
+        hasSymb = true;
         double num1 = values.pop();
         double num2 = values.pop();
         switch (symbol) {
@@ -58,6 +57,9 @@ public class RevPolishCalc {
         }
         values.push(ans);
       }
+    }
+    if (!hasSymb) {
+      throw new InvalidExpression(null);
     }
     ans = values.pop();
     return ans;

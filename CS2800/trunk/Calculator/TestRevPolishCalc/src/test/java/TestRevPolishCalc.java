@@ -113,7 +113,11 @@ class TestRevPolishCalc {
 
   /**
    * Test 7. Tests that the evaluate method correctly handles numbers with multiple digits,
-   * splitting them correctly and dealing with large numbers.
+   * splitting them correctly and dealing with large numbers. For this I changed the check for only
+   * a single number entered to check for only one number in the array instead of checking the
+   * number of characters in the string. Also changed how numbers are pushed onto the stack from the
+   * first character of that array item to the whole string of that element. Changed the checking of
+   * no symbols to use a boolean set true when the first symbol is read. If not true at end of string
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
