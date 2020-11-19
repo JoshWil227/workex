@@ -21,6 +21,7 @@ class TestRevPolishCalc {
    * @throws InvalidExpression if an invalid expression is passed in by the users.
    * @throws BadTypeException if the method tries to push a symbol instead of a number.
    */
+
   @Test
   void testOneNum() throws InvalidExpression, BadTypeException {
     s = "5";
@@ -33,6 +34,7 @@ class TestRevPolishCalc {
    * numbers and no symbol. For this I cheated, making it throw the exception whenever a string
    * longer than 1 character is passed in.
    */
+
   @Test
   void testTwoNums() {
     s = "5 6";
@@ -46,8 +48,9 @@ class TestRevPolishCalc {
    * pushing the numbers into a numstack and ignoring any operands.
    * 
    * @throws InvalidExpression if only two numbers are passed in.
-   * @throws BadTypeException if the method tries to pusg a symbol instead of a number.
+   * @throws BadTypeException if the method tries to push a symbol instead of a number.
    */
+
   @Test
   void testJustAdd() throws InvalidExpression, BadTypeException {
     s = "5 6 +";
@@ -65,6 +68,7 @@ class TestRevPolishCalc {
    * @throws InvalidExpression if only two numbers and no symbol are entered.
    * @throws BadTypeException if the method tries to push a symbol instead of a number.
    */
+
   @Test
   void testSymbols() throws InvalidExpression, BadTypeException {
     s = "8 4 /";
@@ -88,6 +92,7 @@ class TestRevPolishCalc {
    * @throws InvalidExpression if the expression contains a syntax error.
    * @throws BadTypeException if the method tries to push a symbol onto the numstack.
    */
+
   @Test
   void testMultipleSymbols() throws InvalidExpression, BadTypeException {
     s = "4 2 + 7 2 - *";
@@ -99,11 +104,13 @@ class TestRevPolishCalc {
 
   /**
    * Test 6. Tests that the evaluate method correctly handles too many symbols being entered by
-   * throwing an InvalidExpression exception.
+   * throwing an InvalidExpression exception. For this I inserted an if statement when a symbol is
+   * read, checking that there are two numbers in the stack to have the operation performed on.
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
    */
+
   @Test
   void testTooManySymbols() throws InvalidExpression, BadTypeException {
     s = "4 2 + -";
