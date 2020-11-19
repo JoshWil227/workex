@@ -96,4 +96,18 @@ class TestRevPolishCalc {
         "The answer should be returned after being corectly resolved in reverse polish notation.");
   }
 
+
+  /**
+   * Test 6. Tests that the evaluate method correctly handles too many symbols being entered by
+   * throwing an InvalidExpression exception.
+   * 
+   * @throws InvalidExpression if there is a syntax error in the expression entered.
+   * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
+   */
+  @Test
+  void testTooManySymbols() throws InvalidExpression, BadTypeException {
+    s = "4 2 + -";
+    assertThrows(InvalidExpression.class, () -> calc.evaluate(s));
+  }
+
 }
