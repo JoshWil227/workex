@@ -19,7 +19,7 @@ class TestRevPolishCalc {
    * is entered. For this I made it parse the string into a double and return said double.
    * 
    * @throws InvalidExpression if an invalid expression is passed in by the users.
-   * @throws BadTypeException if the method tries to pop a symbol instead of a number.
+   * @throws BadTypeException if the method tries to push a symbol instead of a number.
    */
   @Test
   void testOneNum() throws InvalidExpression, BadTypeException {
@@ -46,7 +46,7 @@ class TestRevPolishCalc {
    * pushing the numbers into a numstack and ignoring any operands.
    * 
    * @throws InvalidExpression if only two numbers are passed in.
-   * @throws BadTypeException if the method tries to pop a symbol instead of a number.
+   * @throws BadTypeException if the method tries to pusg a symbol instead of a number.
    */
   @Test
   void testJustAdd() throws InvalidExpression, BadTypeException {
@@ -63,19 +63,34 @@ class TestRevPolishCalc {
    * numbers in the stack.
    * 
    * @throws InvalidExpression if only two numbers and no symbol are entered.
-   * @throws BadTypeException if the method tries to pop a symbol instead of a number.
+   * @throws BadTypeException if the method tries to push a symbol instead of a number.
    */
   @Test
   void testSymbols() throws InvalidExpression, BadTypeException {
     s = "8 4 /";
     d = calc.evaluate(s);
-    assertEquals(d, 2, "The anser should be the first number divided by the second.");
+    assertEquals(d, 2, "The answer should be the first number divided by the second.");
     s = "8 4 *";
     d = calc.evaluate(s);
-    assertEquals(d, 32, "The anser should be the first number mulitplied by the second.");
+    assertEquals(d, 32, "The answer should be the first number mulitplied by the second.");
     s = "8 4 -";
     d = calc.evaluate(s);
-    assertEquals(d, 4, "The anser should be the first number minus the second.");
+    assertEquals(d, 4, "The answer should be the first number minus the second.");
+  }
+
+
+  /**
+   * Test 5. Tests that the evaluate method can handle multiple operators and numbers. 
+   * 
+   * @throws InvalidExpression if the expression contains a syntax error.
+   * @throws BadTypeException if the method tries to push a symbol onto the numstack.
+   */
+  @Test
+  void testMultipleSymbols() throws InvalidExpression, BadTypeException {
+    s = "4 2 + 7 2 - *";
+    d = calc.evaluate(s);
+    assertEquals(d, 30,
+        "The answer should be returned after being corectly resolved in reverse polish notation.");
   }
 
 }
