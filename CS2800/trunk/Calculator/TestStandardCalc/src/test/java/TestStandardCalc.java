@@ -8,9 +8,14 @@ import org.junit.jupiter.api.Test;
  */
 class TestStandardCalc {
 
+  /**
+   * Test 1. Tests that the calculator returns single-number inputs as they were entered.
+   */
   @Test
-  void test() {
-    fail("Not yet implemented");
+  void testOneNum() {
+    StandardCalc calc = new StandardCalc();
+    String d = "5";
+    calc.evaluate(d);
   }
 
 }
