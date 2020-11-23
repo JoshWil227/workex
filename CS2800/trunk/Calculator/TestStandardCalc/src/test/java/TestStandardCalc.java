@@ -42,5 +42,25 @@ class TestStandardCalc {
     d = calc.evaluate(s);
     assertEquals(d, 10, "The value returned should be the result of the expression entered.");
   }
+  
+  
+  /**
+   * Test 3. Tests that the calculator correctly handles two-clause infix expressions.
+   * 
+   * @throws InvalidExpression if an invalid expression is passed in by the users.
+   * @throws BadTypeException if the method tries to push a symbol instead of a number.
+   */
+  @Test
+  void testTwoOp() throws InvalidExpression, BadTypeException {
+    s = "5 * 5 + 5";
+    d = calc.evaluate(s);
+    assertEquals(d, 30, "The value returned should be the result of the expression.");
+    s = "5 * 5 - 5";
+    d = calc.evaluate(s);
+    assertEquals(d, 20, "The value returned should be the result of the expression.");
+    s = "5 * 5 / 5";
+    d = calc.evaluate(s);
+    assertEquals(d, 5, "The value returned should be the result of the expression.");
+  }
 
 }
