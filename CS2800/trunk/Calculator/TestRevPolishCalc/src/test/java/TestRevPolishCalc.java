@@ -176,6 +176,7 @@ class TestRevPolishCalc {
 
   @Test
   void testDivZero() throws InvalidExpression, BadTypeException {
+    System.out.println("Yeah just runs weird");
     s = "5 0 /";
     assertThrows(InvalidExpression.class, () -> calc.evaluate(s),
         "Dividing by zero should throw an invalid expression exception.");
@@ -184,14 +185,15 @@ class TestRevPolishCalc {
 
   /**
    * Test 10. Tests that the evaluate method deals with arithmetic overflow correctly by throwing an
-   * InvalidExpression.
+   * InvalidExpression. For this I did not have to do anything once again, as, because the numbers
+   * are stored as doubles and doubles do not loop when they overflow, the answer is 
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
    */
   @Test
   void testOverflow() throws InvalidExpression, BadTypeException {
-    s = "1000000000000000000000000000 * 100000000000000000000000000000";
+    s = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 *";
     assertThrows(InvalidExpression.class, () -> calc.evaluate(s),
         "Arithmetic overflow should throw an invalid expression exception.");
   }

@@ -30,6 +30,8 @@ public class RevPolishCalc {
       char token = inputs[i].charAt(0);
       if (Character.isDigit(token)) {
         double d = Double.parseDouble(inputs[i]);
+        System.out.println("Hello");
+        System.out.println(d);
         values.push(d);
       } else {
         if (values.size <= 1) { // if not enough numbers in stack to perform an operation
@@ -56,12 +58,16 @@ public class RevPolishCalc {
             ans = num1 * num2;
             break;
           default:
+            System.out.println("Oh we're here");
             throw new InvalidExpression(null);
         }
         values.push(ans);
       }
     }
     if (!hasSymb) {
+      throw new InvalidExpression(null);
+    }
+    if (ans > Double.MAX_VALUE || ans < -Double.MAX_VALUE) {
       throw new InvalidExpression(null);
     }
     ans = values.pop();
