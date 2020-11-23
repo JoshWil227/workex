@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import java.math.*;
 
 /**
  * The test class for the RevPolishCalc class.
@@ -204,7 +203,7 @@ class TestRevPolishCalc {
    * the whole string being read - so that if the whole string is just one symbol it will perform
    * that operation or if it is not a symbol it will push that number, first checking it is a number
    * and not an invalid input. This also changed how the loop works, no longer checking that the
-   * string is a number first and instead checking if it is a symbol before defaulting to a number. 
+   * string is a number first and instead checking if it is a symbol before defaulting to a number.
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
