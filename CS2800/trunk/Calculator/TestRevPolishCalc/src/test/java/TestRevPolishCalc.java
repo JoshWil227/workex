@@ -176,7 +176,6 @@ class TestRevPolishCalc {
 
   @Test
   void testDivZero() throws InvalidExpression, BadTypeException {
-    System.out.println("Yeah just runs weird");
     s = "5 0 /";
     assertThrows(InvalidExpression.class, () -> calc.evaluate(s),
         "Dividing by zero should throw an invalid expression exception.");
@@ -186,7 +185,7 @@ class TestRevPolishCalc {
   /**
    * Test 10. Tests that the evaluate method deals with arithmetic overflow correctly by throwing an
    * InvalidExpression. For this I did not have to do anything once again, as, because the numbers
-   * are stored as doubles and doubles do not loop when they overflow, the answer is 
+   * are stored as doubles and doubles do not loop when they overflow, the answer is
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
@@ -198,9 +197,14 @@ class TestRevPolishCalc {
         "Arithmetic overflow should throw an invalid expression exception.");
   }
 
-  
+
   /**
-   * Test 11. Tests to see if the program handles negative symbols in front of numbers differently to subtraction.
+   * Test 11. Tests to see if the program handles negative symbols in front of numbers differently
+   * to subtraction. For this I had to change how the strings are read - from the first character to
+   * the whole string being read - so that if the whole string is just one symbol it will perform
+   * that operation or if it is not a symbol it will push that number, first checking it is a number
+   * and not an invalid input. This also changed how the loop works, no longer checking that the
+   * string is a number first and instead checking if it is a symbol before defaulting to a number. 
    * 
    * @throws InvalidExpression if there is a syntax error in the expression entered.
    * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
@@ -209,15 +213,19 @@ class TestRevPolishCalc {
   void testNegatives() throws InvalidExpression, BadTypeException {
     s = "-100 -100 +";
     d = calc.evaluate(s);
-    assertEquals(d, -200, "The method should correctly read the negative sign in front of each number.");
+    assertEquals(d, -200,
+        "The method should correctly read the negative sign in front of each number.");
     s = "-100 -100 -";
     d = calc.evaluate(s);
-    assertEquals(d, 0, "The method should correctly read the negative sign in front of each number.");
+    assertEquals(d, 0,
+        "The method should correctly read the negative sign in front of each number.");
     s = "-6 -7 *";
     d = calc.evaluate(s);
-    assertEquals(d, 42, "The method should correctly read the negative sign in front of each number.");
+    assertEquals(d, 42,
+        "The method should correctly read the negative sign in front of each number.");
     s = "6 -3 /";
     d = calc.evaluate(s);
-    assertEquals(d, -2, "The method should correctly read the negative sign in front of each number.");
+    assertEquals(d, -2,
+        "The method should correctly read the negative sign in front of each number.");
   }
 }
