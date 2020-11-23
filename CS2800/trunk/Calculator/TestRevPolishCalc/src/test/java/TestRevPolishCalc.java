@@ -198,4 +198,26 @@ class TestRevPolishCalc {
         "Arithmetic overflow should throw an invalid expression exception.");
   }
 
+  
+  /**
+   * Test 11. Tests to see if the program handles negative symbols in front of numbers differently to subtraction.
+   * 
+   * @throws InvalidExpression if there is a syntax error in the expression entered.
+   * @throws BadTypeException if the method attempts to push a symbol onto the numstack.
+   */
+  @Test
+  void testNegatives() throws InvalidExpression, BadTypeException {
+    s = "-100 -100 +";
+    d = calc.evaluate(s);
+    assertEquals(d, -200, "The method should correctly read the negative sign in front of each number.");
+    s = "-100 -100 -";
+    d = calc.evaluate(s);
+    assertEquals(d, 0, "The method should correctly read the negative sign in front of each number.");
+    s = "-6 -7 *";
+    d = calc.evaluate(s);
+    assertEquals(d, 42, "The method should correctly read the negative sign in front of each number.");
+    s = "6 -3 /";
+    d = calc.evaluate(s);
+    assertEquals(d, -2, "The method should correctly read the negative sign in front of each number.");
+  }
 }
