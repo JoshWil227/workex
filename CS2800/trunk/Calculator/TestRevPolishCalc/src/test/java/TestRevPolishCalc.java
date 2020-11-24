@@ -228,4 +228,18 @@ class TestRevPolishCalc {
     assertEquals(d, -2,
         "The method should correctly read the negative sign in front of each number.");
   }
+  
+  
+  /**
+   * Test 12. Tests that the evaluate method correctly handles multiple clauses.
+   * 
+   * @throws InvalidExpression
+   * @throws BadTypeException
+   */
+  @Test
+  void testClauses() throws InvalidExpression, BadTypeException {
+    s = "3 2 + 8 4 * -";
+    d = calc.evaluate(s);
+    assertEquals(d, -27, "The method should correctly handle multiple clauses");
+  }
 }
