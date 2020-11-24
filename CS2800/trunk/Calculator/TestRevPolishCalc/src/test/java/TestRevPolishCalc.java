@@ -232,6 +232,7 @@ class TestRevPolishCalc {
   
   /**
    * Test 12. Tests that the evaluate method correctly handles multiple clauses.
+   * For this I did not have to do anything, as the RevPolishCalc correctly handles mulitple clauses.
    * 
    * @throws InvalidExpression
    * @throws BadTypeException
