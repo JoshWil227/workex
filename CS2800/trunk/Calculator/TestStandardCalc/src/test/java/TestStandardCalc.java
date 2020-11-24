@@ -52,12 +52,13 @@ class TestStandardCalc {
    */
   @Test
   void testTwoOp() throws InvalidExpression, BadTypeException {
-    s = "5 * 5 + 5";
+    s = "5 * 5 + 10";
     d = calc.evaluate(s);
-    assertEquals(d, 30, "The value returned should be the result of the expression.");
+    assertEquals(d, 35, "The value returned should be the result of the expression.");
     s = "5 * 5 - 5";
     d = calc.evaluate(s);
     assertEquals(d, 20, "The value returned should be the result of the expression.");
+    System.out.println("Boo");
     s = "5 * 5 / 5";
     d = calc.evaluate(s);
     assertEquals(d, 5, "The value returned should be the result of the expression.");

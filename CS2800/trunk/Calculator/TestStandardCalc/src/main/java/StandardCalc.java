@@ -18,20 +18,45 @@ public class StandardCalc {
    */
   public double evaluate(String what) throws InvalidExpression, BadTypeException {
     String[] inputs = what.split(" ");
-    String op = "";
+    OpStack stack = new OpStack();
+    StrStack revStack = new StrStack();
     String revPol = "";
     if (inputs.length == 1) {
       return Double.parseDouble(what);
     }
-    for (int i = 0; i < inputs.length; i++) {
-      String token = inputs[i];
-      if (token.equals("+")) {
-        op = "+";
-      } else {
-        revPol = revPol + token + " ";
-      }
+    System.out.print("Whole list: ");
+    for (int a = 0; a < inputs.length; a++) { // reverses stack so right to left read works
+      String temp = inputs[a];
+      System.out.print(temp);
+      revStack.push(temp);
     }
-    revPol = revPol + op;
+    System.out.println();
+    for (int i = revStack.size; i > 0;) {
+      String token = revStack.pop();
+      System.out.println(token);
+      switch (token) {
+        case "+":
+          stack.push(Symbol.PLUS);
+          break;
+        case "-":
+          stack.push(Symbol.MINUS);
+          break;
+        case "/":
+          stack.push(Symbol.DIVIDE);
+          break;
+        case "*":
+          stack.push(Symbol.TIMES);
+          break;
+        default:
+          revPol = revPol + token + " ";
+      }
+      i = revStack.size;
+    }
+    for (int i = stack.size; i > 0;) {
+      revPol = revPol + stack.pop() + " ";
+      i = stack.size;
+    }
+    System.out.println("RevPol " + revPol);
     double ans = calc.evaluate(revPol);
     return ans;
   }
