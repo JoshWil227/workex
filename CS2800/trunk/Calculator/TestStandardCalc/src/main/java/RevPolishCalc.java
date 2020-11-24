@@ -70,7 +70,6 @@ public class RevPolishCalc {
           if (values.size >= 2) {
             num1 = values.pop();
             num2 = values.pop();
-            System.out.println(num1 + " * " + num2);
             ans = num1 * num2;
             values.push(ans);
             hasSym = true;
@@ -86,7 +85,6 @@ public class RevPolishCalc {
             System.out.print("Invalid Expression.");
           }
       }
-      System.out.println("Ans " + ans);
     }
     if (!hasSym) {
       throw new InvalidExpression(null);
