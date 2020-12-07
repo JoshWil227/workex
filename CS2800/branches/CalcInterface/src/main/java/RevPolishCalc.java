@@ -4,7 +4,7 @@
  * @author zhac109
  */
 
-public class RevPolishCalc {
+public class RevPolishCalc implements Calculator{
 
   NumStack values = new NumStack();
 
