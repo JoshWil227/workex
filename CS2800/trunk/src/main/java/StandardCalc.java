@@ -4,7 +4,7 @@
  * 
  * @author zhac109
  */
-public class StandardCalc {
+public class StandardCalc implements Calculator {
 
   RevPolishCalc calc = new RevPolishCalc();
 
