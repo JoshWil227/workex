@@ -24,16 +24,13 @@ public class StandardCalc implements Calculator {
     if (inputs.length == 1) {
       return Double.parseDouble(what);
     }
-    System.out.print("Whole list: ");
     for (int a = 0; a < inputs.length; a++) { // reverses stack so right to left read works
       String temp = inputs[a];
-      System.out.print(temp);
       revStack.push(temp);
     }
     System.out.println();
     for (int i = revStack.size; i > 0;) {
       String token = revStack.pop();
-      System.out.println(token);
       switch (token) {
         case "+":
           stack.push(Symbol.PLUS);
@@ -56,7 +53,6 @@ public class StandardCalc implements Calculator {
       revPol = revPol + stack.pop() + " ";
       i = stack.size;
     }
-    System.out.println("RevPol " + revPol);
     double ans = calc.evaluate(revPol);
     return ans;
   }
